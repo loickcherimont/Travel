@@ -16,9 +16,7 @@ This is a travel web application
 ## How to
 <!-- Explain how to use the web application -->
 ## To Do
-- Fix responsive
+- Responsive
+- Fix Popup (Banner background-image, etc)
 - Add popup when user clicks on a card
-
-### UI Design
-    - Decide between black or white cards
-    - Change background image for `body`
+- Change background image for `body` _(Optional)_
