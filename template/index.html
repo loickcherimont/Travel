@@ -4,7 +4,8 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Travel</title>
-    <link rel="stylesheet" href="../assets/stylesheet/main.css">
+    <link rel="stylesheet" href="../assets/stylesheets/main.css">
+    <link rel="stylesheet" href="../assets/stylesheets/responsive.css">
 	<script src="https://kit.fontawesome.com/c8ddc93472.js" crossorigin="anonymous"></script>
   </head>
   <body>
@@ -29,39 +30,24 @@
 	</section>
 	
 	  <!-- Popups -->
-	<section class="popup-section"></section>
-		{{range $index, $item :=.}}
-		<div class="popup-container" id="popup-container-{{$index}}">
-			<div class="popup">
+	{{range $index, $item :=.}}
+	<div class="popup-container" id="popup-container-{{$index}}">
+		<div class="popup">
+			<header class="popup-banner" style="background-image:url(../assets/images/{{$item.Image}});">
+				<h1 class="popup-banner-city">{{$item.City}}</h1>
 				<i class="fas fa-times"></i>
-				<div class="popup-banner" style="background-image: url(../assets/images/{{$item.Image}});">
-					<h2 class="popup-city">{{$item.City}}</h2>
-				</div>
-				<h3 class="popup-country">{{$item.Country}}</h3>
+			</header>
+				<h2 class="popup-country">{{$item.Country}}</h2>
+				<h3 class="popup-continent">{{$item.Continent}}</h3>
 				<p class="popup-description">{{$item.Description}}</p>
-				<p class="popup-stars">{{$item.Stars}}	</p>
-			</div>
+			<footer class="popup-footer">
+				<!-- todo: generate with GO the total number of stars -->
+				<p class="popup-footer-stars">{{$item.Stars}}</p>
+			</footer>
 		</div>
-		{{end}}
-	</section>
-<script>
+	</div>
+	{{end}}
 
-	const cards = document.querySelectorAll('.card');
-	const popupPages = document.querySelectorAll('.popup-container');
-	const quitPopups = document.querySelectorAll('.fa-times');
-
-	cards.forEach((card, index) => {
-		card.onclick = () => {
-			popupPages[index].style.transform = "initial";
-		};
-	});
-
-	quitPopups.forEach((close, index)=> {
-		close.onclick = () => {
-			popupPages[index].style.transform = "scale(0)";
-		};
-	});
-
-</script>
+<script src="../assets/script/main.js"></script>
   </body>
 </html>
