@@ -18,5 +18,4 @@ This is a travel web application
 ## To Do
 - Responsive
 - Fix Popup (Banner background-image, etc)
-- Add popup when user clicks on a card
 - Change background image for `body` _(Optional)_
