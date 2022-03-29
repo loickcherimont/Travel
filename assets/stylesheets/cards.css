@@ -1,0 +1,57 @@
+/* Container of cards */
+.container-cards {
+	height: 100%;
+	width: 100%;
+	grid-row: 3/-1;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	gap: 50px;
+}
+
+.card {
+    width: 280px; height: 400px;
+    display: grid;
+    grid-template-rows: 3fr 2fr 2fr;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #000;
+	background-color: var(--component-bg-color);
+    transition: all 300ms ease-out;
+    color: burlywood;
+    cursor: pointer;
+}
+
+.card-header {
+    clip-path: circle(75.0% at 50% 0);
+}
+
+.card-header-image {
+    width: 100%;
+    height: 100%;
+}
+
+.card-infos {
+    grid-row: 2/-1;
+    text-align: center;
+    display: grid;
+    align-items: center;
+}
+
+.card-infos-city {
+	text-transform: lowercase;
+	font-size: 2em;
+}
+
+.card-infos-country {
+	color: whitesmoke;
+	font-size: 1.5em;
+}
+
+.card-infos-stars {
+	color: var(--star-color);
+	font-size: 1.5em;
+}
+
+
+.card:hover { transform: translate(0, -20px); }
