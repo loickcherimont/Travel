@@ -6,19 +6,21 @@ import (
 	"net/http"
 )
 
-type Cards struct {
-	Image    string
-	AltImage string
-	City     string
-	Country  string
-	Stars    float64
+type Destination struct {
+	Image       string
+	AltImage    string
+	City        string
+	Country     string
+	Continent 	string
+	Stars       float64
+	Description string
 }
 
 // Prepare data for HTML template
-var data = []Cards{
-	{"sanfrancisco.jpg", "Golden Gate Bridge", "San Francisco", "USA", 4},
-	{"paris.jpg", "Eiffel Tower", "Paris", "France", 4.5},
-	{"auckland.jpg", "Auckland downtown", "Auckland", "New Zealand", 4.75},
+var data = []Destination{
+	{"sanfrancisco.jpg", "Golden Gate Bridge", "San Francisco", "USA", "America", 4, "Lorem ipsum"},
+	{"paris.jpg", "Eiffel Tower", "Paris", "France", "Eurasia", 4.5, "Lorem ipsum"},
+	{"auckland.jpg", "Auckland downtown", "Auckland", "New Zealand", "Oceania", 4.75, "Lorem ipsum"},
 }
 
 // Generate the template
@@ -31,7 +33,7 @@ func homeHandler(w http.ResponseWriter, _ *http.Request) {
 
 func main() {
 
-	// Serve static files in assets directory
+	// Serve static files in directory for assets
 	fs := http.FileServer(http.Dir("assets"))
 	http.Handle("/assets/", http.StripPrefix("/assets/", fs))
 

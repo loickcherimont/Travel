@@ -1,0 +1,31 @@
+/* Large screens no Desktop */
+@media screen and (max-width: 992px) {
+	
+	.popup-container {
+		height: 200vh;
+	}
+}
+
+/* For tabs */
+@media screen and (max-width: 768px) {
+	
+	.popup-container {
+		height: 300vh;
+	}
+}
+
+/* For smartphones */
+@media screen and (max-width: 576px) {
+
+	.popup-container {
+		width: 100%;
+	}
+
+	/* .popup {
+		width: 100vw;
+		height: 100vh;
+		grid-template-rows:  auto repeat(2, 50px) auto 50px;
+	} */
+}
+
+/* Responsive for Chrome browser */
