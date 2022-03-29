@@ -5,6 +5,11 @@
 	box-sizing: border-box;
 }
 
+:root {
+	--component-bg-color: #123456;
+	--star-color: #EDE862;
+}
+
 /* Import font */
 @font-face {
     font-family: 'kionaregular';
@@ -21,14 +26,13 @@ body {
 	grid-template-rows: repeat(5, 1fr);
 	
 	font-family: 'kionaregular', Arial, sans-serif;
-	background-color: #4B9CD3;
+	background-color: #17a2b8;
 	font-size: 100%;
 	font-weight: 900;
 }
 
 /* Header */
 .header {
-	color: white;
 	place-self: center;
 	grid-row: 1/3;
 }
@@ -36,205 +40,12 @@ body {
 .header-title {
 	text-transform: uppercase;
 	font-size: 4em;
-}
-
-.fa-plane {
-	font-size: 1em;
-}
-
-/* Container of cards */
-.container-cards::before {
-	position: absolute;
-	content: "";
-	left: 0;
-	top: 0;
-	background-color: #17a2b8;
-	width: 100%;
-	height: 100%;
-	z-index: -1;
-    clip-path: circle(69.1% at 0 50%);
-}
-
-.container-cards {
-	height: 100%;
-	width: 100%;
-	grid-row: 3/-1;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	gap: 50px;
-}
-
-.card {
-    width: 280px; height: 400px;
-    display: grid;
-    grid-template-rows: 3fr 2fr 2fr;
-    border-radius: 20px;
-    overflow: hidden;
-    background-color: #000;
-	background-color: #123456;
-    transition: all 300ms ease-out;
-    color: burlywood;
-    cursor: pointer;
-}
-
-.card-header {
-    clip-path: circle(75.0% at 50% 0);
-}
-
-.card-header-image {
-    width: 100%;
-    height: 100%;
-}
-
-.card-infos {
-    grid-row: 2/-1;
-    text-align: center;
-    display: grid;
-    align-items: center;
-}
-
-.card-infos-city {
-	text-transform: lowercase;
-	font-size: 2em;
-}
-
-.card-infos-country {
-	color: whitesmoke;
-	font-size: 1.5em
-}
-
-.card-infos-stars {
-	color: gold;
-	font-size: 1.5em;
-}
-
-
-.card:hover {
-	transform: translate(0, -20px);
-}
-
-/* From popup */
-.popup-container 
-{
-	width: 100%; min-height: 100vh;
-	display: grid;
-	place-items: center;
-}
-
-/* body {
-	overflow: hidden;
-} */
-
-/* Pop up */
-.popup-container {
-	position: absolute;
-	left: 0; top: 0;
-	background-color: rgba(0,0,0,0.3);
-	transform: scale(0);
-	transition: all 500ms ease-in;
-}
-
-.fa-times {
-	font-size: 2em;
-	color: gray;
-	position: absolute;
-	top: 5%;
-	right: 5%;
-	cursor: pointer;
-}
-
-.popup {
-	position: relative;
-	width: 500px;
-	height: 500px;
+    color: #17a2b8;
+	padding: 10px;
 	background-color: white;
-	border-radius: 5px;
-	display: grid;
-	/* place-items: center; */
-	font-family: "Source Sans Pro", sans-serif;
-	overflow: hidden;
 }
 
-.popup-banner {
-	/* background-position: center; */
-	background-repeat: no-repeat;
-	background-size: 100%;
+.fa-plane { 
+	font-size: 1em; 
+	transform: rotateZ(-45deg);
 }
-
-.popup-banner-city {
-	padding: 5px;
-	font-size: 3em;
-	text-transform: uppercase;
-	font-weight: 300;
-	color: white;
-}
-
-.popup-description {
-	font-size: 1.3em;
-	font-family: Arial;
-	text-align: center;
-	font-style: italic;
-	padding: 1em;
-	color: #5f5f5f;
-}
-
-/* --------------------------------------------------------------------------------------------- */
-/* Add March, 28th 2022 */
-/* POPUP parts */
-/* TO IMPROVE ANCIENT VERSION */
-/* 
-* {
-	margin: 0; padding: 0;
-	box-sizing: border-box;
-}
-
-body { background: gray; font-size: 100%;}
-
-.popup-banner {
-	position: relative;
-	background-image: url(newyork.jpg);
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-
-.popup-banner-city {
-	color: white;
-	position: absolute;
-	bottom: 0; left: 0;
-	font-weight: 500;
-	font-size: 2.5em;
-}
-
-.popup {
-	max-width: 500px; min-height: 500px;
-	background-color: white;
-	
-	display: grid;
-	grid-template-rows: 1fr repeat(2, 50px) auto 50px;
-}
-
-.popup-country,
-.popup-continent {
-	place-self: center;
-	text-transform: uppercase;
-	font-weight: 500;
-}
-
-.popup-country {font-size: 1.5em; }
-
-.pop-continent { font-size: 1.3em; }
-
-.popup-description {
-	font-size: 1.1em;
-	text-align: justify;
-	padding: 15px;
-	font-style: italic;
-}
-
-.popup-footer {
-	place-self: center;
-	font-size: 1.5em;
-	font-weight: bold;
-} */
