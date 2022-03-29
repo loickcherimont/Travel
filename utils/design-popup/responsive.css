@@ -1,7 +1,0 @@
-@media screen and (max-width: 500px) {
-	
-	.popup {
-		grid-template-rows: auto-fit 100px 100px auto-fit 50px;
-		height: 100vh;
-	}
-}
