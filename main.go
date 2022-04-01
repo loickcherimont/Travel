@@ -11,7 +11,7 @@ type Destination struct {
 	AltImage    string
 	City        string
 	Country     string
-	Continent 	string
+	Continent   string
 	Stars       float64
 	Description string
 }
@@ -20,25 +20,23 @@ type Destination struct {
 var data = []Destination{
 	{"sanfrancisco.jpg", "Golden Gate Bridge", "San Francisco", "USA", "America", 4, "Lorem ipsum"},
 	{"paris.jpg", "Eiffel Tower", "Paris", "France", "Eurasia", 4.5, "Lorem ipsum"},
-	{"auckland.jpg", "Auckland downtown", "Auckland", "New Zealand", "Oceania", 4.75, "Lorem ipsum"},
+	{"auckland.jpg", "Auckland downtown", "Auckland", "New Zealand", "Oceania", 4.5, "Lorem ipsum"},
 }
 
 // Generate the template
 var tmpl *template.Template = template.Must(template.ParseFiles("template/index.html"))
 
 // Handle my template
-func homeHandler(w http.ResponseWriter, _ *http.Request) {
+func indexHandler(w http.ResponseWriter, _ *http.Request) {
 	tmpl.Execute(w, data)
 }
 
 func main() {
-
-	// Serve static files in directory for assets
+	// Serve CSS, Javascript and images (static files) (1)
 	fs := http.FileServer(http.Dir("assets"))
-	http.Handle("/assets/", http.StripPrefix("/assets/", fs))
 
-	// Manage and Listen and serve
-	http.HandleFunc("/", homeHandler)
-	log.Fatal(http.ListenAndServe(":8080", nil))
-
+	mux := http.NewServeMux()
+	mux.Handle("/assets/", http.StripPrefix("/assets/", fs)) // (2)
+	mux.HandleFunc("/", indexHandler)
+	log.Fatal(http.ListenAndServe(":8080", mux))
 }
