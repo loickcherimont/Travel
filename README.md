@@ -1,4 +1,3 @@
-# TRAVEL
 <p align="center">
     <img src="assets/images/readme_images/travel-logo.png" width="590" height="270">
 </p>
