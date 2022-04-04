@@ -7,7 +7,7 @@ This is a travel web application where you can choose your destination
 for your next holidays :wink: !
 
 ## Prerequisites
-- go 1.17 or earlier
+- go 1.18
 - Recent browser
 - Terminal
 
@@ -17,20 +17,20 @@ for your next holidays :wink: !
     - CSS3
     - Javascript
 - Dynamic:
-    - Golang
+    - Golang 1.18
 ## Installation 
 1. Download the whole project `Travel` on your system
 2. Open your terminal in `Travel`
 ```
 cd Travel
 ```
-3. Run `main.go` using the following command line
+3. In `Travel` directory, run:
 ```
-go run main.go
+go run github.com/loickcherimont/Travel/main
 ```
 4. If there is no error. Go on your favorite browser and use this line in your URL address bar
 ```
-http://localhost:8080
+http://localhost:8080/travel
 ```
 5. Here you are! Welcome in the main page of the Web application
 
@@ -40,9 +40,9 @@ http://localhost:8080
 <!-- Main explanations to use the web application: Features, possibilities, etc -->
 
 ## To Do
+- Fix import for modules
+- Use JSON file for data storage (_cf `models/models/destinations.go`_)
+- Error manager
 - Fix responsive
 - Add a search bar
-- Generate with Golang the code for stars
-- Error manager
 - Prefer an `background-image` instead of `background-color`
-- Use modules
