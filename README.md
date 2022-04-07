@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="assets/images/readme_images/travel-logo.png" width="590" height="270">
+    <h1> Travel :airplane: </h1>
 </p>
 
 ## Introduction
@@ -40,9 +40,6 @@ http://localhost:8080/travel
 <!-- Main explanations to use the web application: Features, possibilities, etc -->
 
 ## To Do
-- Fix import for modules
-- Use JSON file for data storage (_cf `models/models/destinations.go`_)
 - Error manager
 - Fix responsive
 - Add a search bar
-- Prefer an `background-image` instead of `background-color`
