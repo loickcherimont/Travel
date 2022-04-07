@@ -1,21 +1,33 @@
 package handler
 
 import (
+	"encoding/json"
 	"html/template"
+	"log"
 	"net/http"
+	"os"
 
 	models "github.com/loickcherimont/Travel/models"
 )
 
 var tmpl *template.Template = NewHTMLTemplate()
 
-// TODO: Use JSON file to stock data
-// instead of the following function
-func GetInfoOnDestinations() []models.Destination {
-	destinations := []models.Destination{
-		{"sanfrancisco.jpg", "Golden Gate Bridge", "San Francisco", "USA", "America", 4, "Lorem ipsum"},
-		{"paris.jpg", "Eiffel Tower", "Paris", "France", "Eurasia", 4.5, "Lorem ipsum"},
-		{"auckland.jpg", "Auckland downtown", "Auckland", "New Zealand", "Oceania", 4.5, "Lorem ipsum"},
+// From json file
+func GetDestinations() []models.Destination {
+
+	// Storage for unmarshal json data
+	var destinations []models.Destination
+
+	content, err := os.ReadFile("models/config.json")
+
+	if err != nil {
+		panic(err)
+	}
+
+	err = json.Unmarshal(content, &destinations)
+	_ = err
+	if err != nil {
+		log.Fatal(err)
 	}
 
 	return destinations
@@ -28,5 +40,5 @@ func NewHTMLTemplate() *template.Template {
 
 // Inject data into the generated template
 func GetIndexPage(w http.ResponseWriter, _ *http.Request) {
-	tmpl.Execute(w, GetInfoOnDestinations())
+	tmpl.Execute(w, GetDestinations())
 }
