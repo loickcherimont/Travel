@@ -26,9 +26,14 @@ body {
 	grid-template-rows: repeat(5, 1fr);
 	
 	font-family: 'kionaregular', Arial, sans-serif;
-	background-color: #17a2b8;
+	background-image: linear-gradient(rgba(255, 255, 255, .5), rgba(23,162,184, .8)), url(../images/main-background.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 	font-size: 100%;
 	font-weight: 900;
+	user-select: none;
+
 }
 
 /* Header */
