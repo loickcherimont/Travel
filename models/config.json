@@ -1,0 +1,29 @@
+[
+        {
+                "image": "sanfrancisco.jpg",
+                "altImage": "Golden Gate Bridge",
+                "city": "San Francisco",
+                "country": "USA",
+                "continent": "America",
+                "stars": 4,
+                "description": "Lorem ipsum for San Francisco"
+        },
+        {
+                "image": "paris.jpg",
+                "altImage": "Eiffel Tower",
+                "city": "Paris",
+                "country": "France",
+                "continent": "Eurasia",
+                "stars": 4.5,
+                "description": "Lorem ipsum for Paris"
+        },
+        {
+                "image": "auckland.jpg",
+                "altImage": "Auckland downtown",
+                "city": "Auckland",
+                "country": "New Zealand",
+                "continent": "Oceania",
+                "stars": 4.5,
+                "description": "Lorem ipsum for Auckland"
+        }
+]
