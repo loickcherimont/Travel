@@ -40,6 +40,5 @@ http://localhost:8080/travel
 <!-- Main explanations to use the web application: Features, possibilities, etc -->
 
 ## To Do
-- Error manager
-- Fix responsive
-- Add a search bar
+- Make a header with logo on the left and large search bar on the right
+- Code for search bar
