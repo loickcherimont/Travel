@@ -40,6 +40,5 @@ http://localhost:8080/travel
 <!-- Main explanations to use the web application: Features, possibilities, etc -->
 
 ## To Do
-- Error manager
-- Fix responsive
-- Add a search bar
+- Add Go code for search
+- Change the background-image for a vectorial image
