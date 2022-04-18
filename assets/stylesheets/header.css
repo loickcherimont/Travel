@@ -1,0 +1,31 @@
+/* Main header */
+.header {
+    background-color: var(--component-bg-color);
+	grid-row-start: 1;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	color: #fff;
+}
+
+.header-title {
+	text-transform: uppercase;
+	font-size: 4em;
+    color: #17a2b8;
+	padding: 10px;
+	background-color: white;
+}
+
+.header-form-search {
+    width: 200%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1em;
+}
+
+.fa-plane { 
+	font-size: 1em; 
+	transform: rotateZ(-45deg);
+}
