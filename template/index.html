@@ -1,3 +1,5 @@
+<!-- Generate the default template -->
+{{define "Default"}}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,9 +14,6 @@
 	<script src="https://kit.fontawesome.com/c8ddc93472.js" crossorigin="anonymous"></script>
   </head>
   <body>
-	<!-- <header class="header">
-		<h1 class="header-title"></h1>
-	</header> -->
 	<!-- Header with search bar -  04.18.2022 -->
 	<header class="header">
 		<h1 class="header-logo">Tr<i class="fas fa-plane"></i>vel</h1>
@@ -60,4 +59,97 @@
 
 <script src="../assets/script/main.js"></script>
   </body>
+</html>
+{{end}}
+ <!-- ****************************************************************************************** --> 
+<!-- Generate template with chosen destination -->
+{{define "Specific"}}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Travel</title>
+	<link rel="stylesheet" href="../assets/stylesheets/header.css">
+    <link rel="stylesheet" href="../assets/stylesheets/main.css">
+    <link rel="stylesheet" href="../assets/stylesheets/popup.css">
+    <link rel="stylesheet" href="../assets/stylesheets/cards.css">
+    <link rel="stylesheet" href="../assets/stylesheets/responsive.css">
+	<script src="https://kit.fontawesome.com/c8ddc93472.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+	<!-- Header with search bar -  04.18.2022 -->
+	<header class="header">
+		<h1 class="header-logo">Tr<i class="fas fa-plane"></i>vel</h1>
+		<form action="/search" method="GET" class="header-form">
+			<input class="header-form-search" type="search" name="q" placeholder="Paris, Auckland, etc">
+		</form>
+	</header>
+
+	<section class="container-cards">
+		{{range $index, $item :=.}}
+			<div class="card" id="card-{{$index}}">
+				<div class="card-header">
+					<img src="../assets/images/{{$item.Image}}" alt="{{$item.AltImage}}" class="card-header-image">
+				</div>
+				<div class="card-infos">
+					<h1 class="card-infos-city">{{$item.City}}</h1>
+					<h2 class="card-infos-country">{{$item.Country}}</h2>
+					<h3 class="card-infos-stars"><i class="fa fa-star" aria-hidden="true"></i>
+						{{$item.Stars}}</h3>
+				</div>
+			</div>
+		{{end}}
+	</section>
+	
+	  <!-- Popups -->
+	{{range $index, $item :=.}}
+	<div class="popup-container" id="popup-container-{{$index}}">
+		<div class="popup">
+			<header class="popup-banner" style="background-image:url(../assets/images/{{$item.Image}});">
+				<h1 class="popup-banner-city">{{$item.City}}</h1>
+				<i class="fas fa-times"></i>
+			</header>
+				<h2 class="popup-country">{{$item.Country}}</h2>
+				<h3 class="popup-continent">{{$item.Continent}}</h3>
+				<p class="popup-description">{{$item.Description}}</p>
+			<footer class="popup-footer">
+				<!-- todo: generate with GO the total number of stars -->
+				<p class="popup-footer-stars">{{$item.Stars}}</p>
+			</footer>
+		</div>
+	</div>
+	{{end}}
+
+<script src="../assets/script/main.js"></script>
+  </body>
+</html>
+{{end}}
+
+
+<!-- From search utils -->
+{{define "T"}}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1 class="header-logo">Logo</h1>
+        <form action="/search" method="GET" class="header-form">
+            <input class="header-form-search" type="search" name="q" placeholder="Paris or London, etc">
+        </form>
+    </header>
+
+    <div class="body-result">
+        <p>Result for : <strong>{{.ChosenCity}}</strong></p>
+        <div>
+            <h1>{{.ChosenCity}}</h1>
+        </div>
+    </div>
+{{end}}
+</body>
 </html>
