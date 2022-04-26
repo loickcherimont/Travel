@@ -40,5 +40,5 @@ http://localhost:8080/travel
 <!-- Main explanations to use the web application: Features, possibilities, etc -->
 
 ## To Do
-- Add Go code for search
+- Filter to return a specific city with `search handler`
 - Change the background-image for a vectorial image
