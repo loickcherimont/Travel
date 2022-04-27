@@ -40,7 +40,7 @@ func GetDestinations() []models.Destination {
 func GetDestinationByCity(cityName string) []models.Destination {
 
 	// Place to store the specific destination
-	var destination []models.Destination
+	var destinations []models.Destination
 
 	content, err := os.ReadFile("models/config.json")
 
@@ -48,18 +48,21 @@ func GetDestinationByCity(cityName string) []models.Destination {
 		panic(err)
 	}
 
-	err = json.Unmarshal(content, &destination)
+	err = json.Unmarshal(content, &destinations)
 	_ = err
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// Debug
-	// for k, v := range destination {
-	// 	if
-	// }
-
-	return destination
+	for _, v := range destinations {
+		if v.City == cityName {
+			destinations = make([]models.Destination, 1)
+			destinations[0] = v
+			return destinations
+		}
+	}
+	// TODO: Error handler for unavailable city
+	return make([]models.Destination, 0)
 }
 
 // Create a HTML template
@@ -86,7 +89,9 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 		if city == "" {
 			// Show all available destinations
 			tmpl.ExecuteTemplate(w, "Default", GetDestinations())
+			return
 		}
 		tmpl.ExecuteTemplate(w, "Specific", GetDestinationByCity(city))
+		return
 	}
 }
