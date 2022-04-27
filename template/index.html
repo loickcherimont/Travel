@@ -125,31 +125,3 @@
   </body>
 </html>
 {{end}}
-
-
-<!-- From search utils -->
-{{define "T"}}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
-
-    <header class="header">
-        <h1 class="header-logo">Logo</h1>
-        <form action="/search" method="GET" class="header-form">
-            <input class="header-form-search" type="search" name="q" placeholder="Paris or London, etc">
-        </form>
-    </header>
-
-    <div class="body-result">
-        <p>Result for : <strong>{{.ChosenCity}}</strong></p>
-        <div>
-            <h1>{{.ChosenCity}}</h1>
-        </div>
-    </div>
-{{end}}
-</body>
-</html>
