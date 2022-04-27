@@ -40,5 +40,5 @@ http://localhost:8080/travel
 <!-- Main explanations to use the web application: Features, possibilities, etc -->
 
 ## To Do
-- Filter to return a specific city with `search handler`
+- `Filtered search`: Handle user query (_trim tolower/toupper case, etc_)
 - Change the background-image for a vectorial image
