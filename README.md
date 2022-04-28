@@ -37,8 +37,8 @@ http://localhost:8080/travel
 ![Main page of the application](assets/images/readme_images/mainpage.png)
 
 <!-- ## How to use -->
-<!-- Main explanations to use the web application: Features, possibilities, etc -->
 
 ## To Do
-- `Filtered search`: Handle user query (_trim tolower/toupper case, etc_)
-- Change the background-image for a vectorial image
+- Filter handling by city
+- Error management
+- Reorganize each file and folders
