@@ -16,8 +16,10 @@ func main() {
 	mux := http.NewServeMux()
 	mux.Handle("/assets/", http.StripPrefix("/assets/", fs)) // (2)
 
+	// Handlers for each request
 	mux.HandleFunc("/search", handler.SearchHandler)
 	mux.HandleFunc("/travel", handler.GetIndexPage)
+
 	// Serve on 8080 PORT
 	fmt.Println("Listening and serving on PORT 8080")
 	log.Fatal(http.ListenAndServe(":8080", mux))
