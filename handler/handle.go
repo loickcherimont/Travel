@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"strings"
 
 	models "github.com/loickcherimont/Travel/models"
 )
@@ -36,7 +37,7 @@ func GetDestinations() []models.Destination {
 }
 
 // From json file
-// Fetch a specific destination by its city
+// Fetch a specific destination by its city name
 func GetDestinationByCity(cityName string) []models.Destination {
 
 	// Place to store the specific destination
@@ -61,7 +62,7 @@ func GetDestinationByCity(cityName string) []models.Destination {
 			return destinations
 		}
 	}
-	// TODO: Error handler for unavailable city
+
 	return make([]models.Destination, 0)
 }
 
@@ -75,6 +76,8 @@ func GetIndexPage(w http.ResponseWriter, _ *http.Request) {
 	tmpl.ExecuteTemplate(w, "Default", GetDestinations())
 }
 
+// Fetch user query
+// Return the corresponding card
 func SearchHandler(w http.ResponseWriter, r *http.Request) {
 	u, err := url.Parse(r.URL.String())
 	if err != nil {
@@ -85,12 +88,33 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 	city := params.Get("q")
 
 	if r.Method == http.MethodGet {
-		// user entry is empty
+
+		// Prepare the user entry
+		prepareEntry := func(userEntry string) string {
+
+			// Delete extra spaces
+			userEntry = strings.Trim(city, " ")
+
+			// Capitalize city name
+			t := strings.Split(userEntry, "")
+			firstLetterToUppercase := func(s []string) []string {
+				return []string{strings.ToUpper(s[0])}
+			}
+			t = append(firstLetterToUppercase(t), t[1:]...)
+			userEntry = strings.Join(t, "")
+
+			return userEntry
+		}
+
+		city = prepareEntry(city)
+
+		// If user entry does not exist
+		// Show all available destinations
 		if city == "" {
-			// Show all available destinations
 			tmpl.ExecuteTemplate(w, "Default", GetDestinations())
 			return
 		}
+		// Show corresponding card
 		tmpl.ExecuteTemplate(w, "Specific", GetDestinationByCity(city))
 		return
 	}
